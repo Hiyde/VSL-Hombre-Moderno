@@ -53,6 +53,11 @@
       font-size: 18px;
       color: white;
     }
+    #container-botao {
+      margin-top: 30px;
+      text-align: center;
+      margin-bottom: 100px; /* adiciona mais espaço entre botão e comentários */
+    }
     #comentarios {
       background-color: white;
       color: black;
@@ -104,7 +109,9 @@
   <p><strong>Tu video ya ha comenzado, sube el volumen 🔊</strong></p>
 </div>
 
-<a id="botao" href="https://pay.hotmart.com/I99087923Q">ACCEDER AL MANUAL AHORA</a>
+<div id="container-botao">
+  <a id="botao" href="https://pay.hotmart.com/I99087923Q">ACCEDER AL MANUAL AHORA</a>
+</div>
 
 <div id="comentarios">
   <div class="comentario"><img src="https://randomuser.me/api/portraits/men/1.jpg" alt="perfil"><div><strong>Juan Pérez</strong>: Estaba viviendo exactamente esto... ¡Gracias por abrirme los ojos!<br><small>Me gusta - Responder - Hace 2 horas</small></div></div>
@@ -124,14 +131,16 @@
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const botao = document.getElementById('botao');
-
-    setTimeout(() => {
-      botao.style.display = 'inline-block';
-      botao.style.visibility = 'visible';
-      botao.style.opacity = '1';
-    }, 308000); // 308 segundos
+  window.addEventListener("message", function(event) {
+    if (typeof event.data === "object" && event.data.event === "timeupdate") {
+      var currentTime = event.data.currentTime;
+      if (currentTime >= 318) {
+        var botao = document.getElementById('botao');
+        botao.style.display = 'inline-block';
+        botao.style.visibility = 'visible';
+        botao.style.opacity = '1';
+      }
+    }
   });
 </script>
 
