@@ -124,12 +124,15 @@
 </div>
 
 <script>
-  const botao = document.getElementById('botao');
-  const tempoParaAparecer = 308 * 1000; // 308 segundos em milissegundos
+  document.addEventListener("DOMContentLoaded", function() {
+    const botao = document.getElementById('botao');
 
-  setTimeout(() => {
-    botao.style.display = 'inline-block';
-  }, tempoParaAparecer);
+    setTimeout(() => {
+      botao.style.display = 'inline-block';
+      botao.style.visibility = 'visible';
+      botao.style.opacity = '1';
+    }, 308000); // 308 segundos
+  });
 </script>
 
 </body>
